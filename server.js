@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const passport = require('passport');
+const session = require('express-session');
 const bodyParser = require('body-parser');
 const app = express();
 
@@ -13,6 +14,13 @@ app.use(bodyParser.json());
 
 // Log all requests
 app.use(morgan('[:date[clf]] :method :url :status - :response-time ms'));
+
+// Initialise express session
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+}))
 
 // Initialise passport sessions
 app.use(passport.initialize());
