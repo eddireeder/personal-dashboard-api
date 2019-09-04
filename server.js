@@ -1,7 +1,11 @@
-const morgan = require("morgan");
 const express = require('express');
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
+
+// Parse incoming request bodies as JSON
+app.use(bodyParser.json());
 
 // Log all requests
 app.use(morgan('[:date[clf]] :method :url :status - :response-time ms'));
