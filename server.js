@@ -13,6 +13,9 @@ app.use(bodyParser.json());
 // Log all requests
 app.use(morgan('[:date[clf]] :method :url :status - :response-time ms'));
 
+// Set up passport config to define strategies
+require('./config/passport');
+
 // Use defined routes
 app.use('/', require('./routes'));
 
