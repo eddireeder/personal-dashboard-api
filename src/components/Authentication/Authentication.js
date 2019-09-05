@@ -4,7 +4,7 @@ import './Authentication.css';
 function Authentication() {
   return (
     <div className="Authentication">
-      Hello world
+      Authentication
     </div>
   );
 }

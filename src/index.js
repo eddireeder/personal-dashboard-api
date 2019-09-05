@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom'
 import App from './components/App/App';
 import Authentication from './components/Authentication/Authentication';
+import NotFound from './components/NotFound/NotFound';
 import * as serviceWorker from './serviceWorker';
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render = {
+    props => (localStorage.getItem('user') ? <Component {...props} /> : <Redirect to = {{pathname: '/auth/login', state: {from: props.location}}}/>)
+  }/>
+);
 
 const routing = (
   <Router>
     <div>
-      <Route exact path="/" component={App} />
-      <Route path="/authentication" component={Authentication} />
+      <Switch>
+        <Route exact path="/auth" component={Authentication}/>
+        <PrivateRoute exact path="/" component={App}/>
+        <Route component={NotFound}/>
+      </Switch>
     </div>
   </Router>
 )
