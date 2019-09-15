@@ -66,6 +66,7 @@ class WeatherPreview extends React.Component {
         </React.Fragment>
       );
     }
+    
     return (
       <div className="WeatherPreview preview">
         {content}
