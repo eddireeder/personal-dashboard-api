@@ -1,0 +1,24 @@
+.DashboardButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 16rem;
+  height: 10rem;
+  border-radius: 0.3rem;
+  border: solid #ffe75e 0.1rem;
+  margin: 1rem;
+  background-color: #ffffff9e;
+}
+
+.DashboardButton>.title {
+  width: 100%;
+  font-size: 1.4rem;
+  padding: 0.6rem 0;
+  background-color: #ffe75e;
+  text-align: center;
+}
+
+.DashboardButton>.preview {
+  width: 100%;
+  flex-grow: 1;
+}

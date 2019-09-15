@@ -23,7 +23,7 @@ class Login extends React.Component {
       });
       if (response.status === 200) {
         // Place the returned user object in local storage
-        localStorage.setItem('user', response.data);
+        localStorage.setItem('user', JSON.stringify(response.data));
         this.setState({
           authenticated: true,
           error: ""
