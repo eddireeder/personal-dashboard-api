@@ -56,7 +56,7 @@ class WeatherPreview extends React.Component {
       content = (
         <React.Fragment>
           <div className="weather">
-            <img src={'http://openweathermap.org/img/wn/' + this.state.weather.weather[0].icon + '@2x.png'}/>
+            <img alt="Weather icon" src={'http://openweathermap.org/img/wn/' + this.state.weather.weather[0].icon + '@2x.png'}/>
             <div>
               <div>{this.state.weather.main.temp}</div>
               <div>degrees</div>
@@ -66,7 +66,7 @@ class WeatherPreview extends React.Component {
         </React.Fragment>
       );
     }
-    
+
     return (
       <div className="WeatherPreview preview">
         {content}

@@ -1,9 +1,9 @@
 import React from 'react';
-import './NewsPreview.css';
+import './News.css';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
-class NewsPreview extends React.Component {
+class News extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -61,16 +61,17 @@ class NewsPreview extends React.Component {
       content = (
         <React.Fragment>
           <div className="title">{this.state.story.title}</div>
+          <div className="content">{this.state.story.content}</div>
         </React.Fragment>
       );
     }
 
     return (
-      <div className="NewsPreview preview">
+      <div className="News">
         {content}
       </div>
     );
   }
 }
 
-export default NewsPreview;
+export default News;

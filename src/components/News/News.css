@@ -1,0 +1,15 @@
+.News {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+
+.News>.title {
+  font-size: 2rem;
+  margin: 2rem;
+}
+
+.News>.content {
+  margin: 0 2rem;
+}

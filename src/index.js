@@ -6,6 +6,7 @@ import App from './components/App/App';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import NotFound from './components/NotFound/NotFound';
+import News from './components/News/News';
 import * as serviceWorker from './serviceWorker';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -20,6 +21,7 @@ const routing = (
       <Route path="/login" component={Login}/>
       <Route path="/register" component={Register}/>
       <PrivateRoute exact path="/" component={App}/>
+      <PrivateRoute exact path="/news" component={News}/>
       <Route component={NotFound}/>
     </Switch>
   </Router>

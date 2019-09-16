@@ -1,0 +1,11 @@
+.NewsPreview.preview {
+  padding: 1rem;
+  width: initial;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.NewsPreview>.title {
+  font-size: 1.1rem;
+}
