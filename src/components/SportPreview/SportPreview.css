@@ -1,0 +1,11 @@
+.SportPreview {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 1rem;
+  flex-direction: column;
+}
+
+.SportPreview>.team {
+  font-size: 1.4rem;
+}

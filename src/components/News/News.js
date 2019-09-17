@@ -68,6 +68,7 @@ class News extends React.Component {
 
     return (
       <div className="News">
+        <div className="header">News</div>
         {content}
       </div>
     );
