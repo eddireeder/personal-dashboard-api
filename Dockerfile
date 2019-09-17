@@ -1,12 +1,24 @@
 FROM node:8
 
-WORKDIR /opt/personal-dashboard/api
+WORKDIR /opt/personal-dashboard
 
-COPY package.json ./
-COPY package-lock.json ./
+# Copy React app to container
+COPY ../app ./
 
+# Build the React app
+RUN cd app && npm build
+
+# Make a directory for this API
+RUN mkdir api
+
+COPY package.json ./api
+COPY package-lock.json ./api
+
+# Install NodeJS API dependencies
 RUN npm install
 
-COPY . ./
+# Copy NodeJS API to container
+COPY . ./api
 
-CMD ["node", "server"]
+# Run the server
+CMD cd api && node server
