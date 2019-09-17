@@ -41,7 +41,7 @@ app.use('/', require('./routes'));
 // Handles any requests that don't match the ones above
 if (process.env.NODE_ENV !== "development") {
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
   });
 }
 
