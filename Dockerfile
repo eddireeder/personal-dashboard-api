@@ -3,22 +3,25 @@ FROM node:8
 WORKDIR /opt/personal-dashboard
 
 # Copy React app to container
-COPY app ./
+COPY client ./client
 
 # Build the React app
-RUN cd app && npm build
+RUN cd client && npm install && npm run build
 
-# Make a directory for this API
-RUN mkdir api
+# Make a directory for the NodeJS server
+RUN mkdir server
 
-COPY api/package.json ./api
-COPY api/package-lock.json ./api
+COPY server/package.json ./server
+COPY server/package-lock.json ./server
 
-# Install NodeJS API dependencies
-RUN npm install
+# Install server dependencies
+RUN cd server && npm install
 
-# Copy NodeJS API to container
-COPY api ./
+# Copy NodeJS server to container
+COPY server ./server
+
+# Expose port
+EXPOSE 80
 
 # Run the server
-CMD cd api && node server
+CMD cd server && node server

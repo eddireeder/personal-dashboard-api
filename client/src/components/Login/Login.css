@@ -1,0 +1,82 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.Login>h1 {
+  color: white;
+  margin: 3rem;
+  font-size: 3rem;
+}
+
+.Login>form {
+  justify-content: space-between;
+  display: flex;
+  width: 30rem;
+  height: 30rem;
+  flex-direction: column;
+}
+
+.Login form>.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Login form>.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Login .button {
+  display: flex;
+  background-color: #ffe65e;
+  color: black;
+  text-decoration: none;
+  justify-content: center;
+  height: 2.5rem;
+  align-items: center;
+  width: 12rem;
+  border-radius: 2rem;
+  padding: 0;
+  border: none;
+  font-size: 1rem;
+}
+
+.Login .button:hover {
+  cursor: pointer;
+}
+
+.Login .register-link {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.Login .register-link>a {
+  color: #ffe65e;
+  text-decoration: none;
+}
+
+.Login .top input {
+  background: none;
+  border: none;
+  border-bottom: 0.09rem white solid;
+  padding-bottom: 0.1rem;
+  font-size: 1rem;
+  width: 12rem;
+  color: white;
+}
+
+.Login input::placeholder {
+  color: white;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+.Login .error {
+  color: #ff4545;
+}

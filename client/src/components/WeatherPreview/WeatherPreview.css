@@ -1,0 +1,26 @@
+.WeatherPreview {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.WeatherPreview>.weather {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.WeatherPreview>.weather>img {
+  height: 6rem;
+}
+
+.WeatherPreview>.weather>div {
+  font-size: 1.1rem;
+}
+
+.WeatherPreview>.location {
+  font-size: 1.3rem;
+  position: relative;
+  top: -1rem;
+}

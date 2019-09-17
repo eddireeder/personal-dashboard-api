@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const passport = require('passport');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const path = require('path');
 const app = express();
 
 // Read .env file
@@ -17,7 +18,7 @@ app.use(morgan('[:date[clf]] :method :url :status - :response-time ms'));
 
 // Initialise express session
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: "thisisverysecretandiwouldntdothisinproduction",
   resave: false,
   saveUninitialized: true,
 }))
@@ -29,8 +30,20 @@ app.use(passport.session());
 // Set up passport config to define strategies
 require('./config/passport');
 
+// Serve the static files from the React app (production)
+if (process.env.NODE_ENV !== "development") {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
 // Use defined routes
 app.use('/', require('./routes'));
+
+// Handles any requests that don't match the ones above
+if (process.env.NODE_ENV !== "development") {
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  });
+}
 
 // Handle route not found
 app.use((req, res, next) => {
@@ -44,6 +57,7 @@ app.use((err, req, res, next) => {
 });
 
 // Start listening
-app.listen(process.env.PORT, () => {
-  console.log("Server running on port " + process.env.PORT);
+const port = (process.env.NODE_ENV === "development") ? process.env.SERVER_DEV_PORT : 80;
+app.listen(port, () => {
+  console.log("Server running on port " + port);
 });
